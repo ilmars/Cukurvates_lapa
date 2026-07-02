@@ -15,7 +15,7 @@
   --white: #FFFFFF;
   --radius: 20px;
   --shadow: 0 6px 24px rgba(224, 78, 135, 0.12);
-  --font-head: 'Baloo 2', sans-serif;
+  --font-head: 'Nunito', sans-serif;
   --font-body: 'Nunito', sans-serif;
 }
 
@@ -38,7 +38,7 @@ body {
 
 .container--narrow { max-width: 760px; }
 
-h1, h2, h3 { font-family: var(--font-head); font-weight: 600; line-height: 1.2; }
+h1, h2, h3 { font-family: var(--font-head); font-weight: 800; line-height: 1.2; }
 
 h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
 
@@ -101,7 +101,7 @@ h2 {
 }
 .header__logo {
   font-family: var(--font-head);
-  font-weight: 600;
+  font-weight: 800;
   font-size: 1.3rem;
   color: var(--pink-dark);
   text-decoration: none;
@@ -251,7 +251,7 @@ h2 {
 .price-card__price {
   font-family: var(--font-head);
   font-size: 2.4rem;
-  font-weight: 600;
+  font-weight: 800;
   color: var(--pink-dark);
   margin: 8px 0 14px;
 }
@@ -313,7 +313,7 @@ h2 {
   justify-content: space-between;
   margin-bottom: 14px;
 }
-.calendar__month { font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; }
+.calendar__month { font-family: var(--font-head); font-weight: 800; font-size: 1.05rem; }
 .calendar__nav {
   border: none;
   background: var(--pink-light);
