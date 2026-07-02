@@ -28,21 +28,32 @@ window.CAL = (function () {
     var key = cfg.google && cfg.google.calendarApiKey;
     if (!id || !key) return Promise.reject(new Error("Kalendārs nav konfigurēts"));
 
-    var timeMin = new Date(today.getFullYear(), today.getMonth(), 1).toISOString();
-    var timeMax = new Date(today.getFullYear(), today.getMonth() + MONTHS_AHEAD + 1, 1).toISOString();
     var url = "https://www.googleapis.com/calendar/v3/freeBusy?key=" + encodeURIComponent(key);
 
-    return fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ timeMin: timeMin, timeMax: timeMax, items: [{ id: id }] })
-    }).then(function (res) {
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      return res.json();
-    }).then(function (data) {
-      var cal = data.calendars && data.calendars[id];
-      if (!cal || cal.errors) throw new Error("Kalendārs nav publiski pieejams");
-      (cal.busy || []).forEach(markBusyRange);
+    // freeBusy neatļauj pārāk garu posmu vienā vaicājumā,
+    // tāpēc dalām pa 2 mēnešiem
+    var chunks = [];
+    for (var m = 0; m < MONTHS_AHEAD + 1; m += 2) {
+      chunks.push({
+        timeMin: new Date(today.getFullYear(), today.getMonth() + m, 1).toISOString(),
+        timeMax: new Date(today.getFullYear(), today.getMonth() + Math.min(m + 2, MONTHS_AHEAD + 1), 1).toISOString()
+      });
+    }
+
+    return Promise.all(chunks.map(function (chunk) {
+      return fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ timeMin: chunk.timeMin, timeMax: chunk.timeMax, items: [{ id: id }] })
+      }).then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      }).then(function (data) {
+        var cal = data.calendars && data.calendars[id];
+        if (!cal || cal.errors) throw new Error("Kalendārs nav publiski pieejams");
+        (cal.busy || []).forEach(markBusyRange);
+      });
+    })).then(function () {
       loaded = true;
     });
   }

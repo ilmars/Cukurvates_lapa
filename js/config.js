@@ -35,7 +35,7 @@ window.SITE_CONFIG = {
     // Publiska Google kalendāra ID (piem., xxx@group.calendar.google.com)
     calendarId: "f28fa9b3cf56366baba91ef0ab227ffe34d7f7f12f4f61a9ab8bdfa731098258@group.calendar.google.com",
     // Google Cloud API atslēga (tikai Calendar API, ar referrer ierobežojumu!)
-    calendarApiKey: ""
+    calendarApiKey: "AIzaSyA2S19N7XkkiVO5n6JN4-TeTOuRHqfBV9I"
   },
 
   // ---- ATTĒLI ----
