@@ -24,7 +24,7 @@ window.SITE_CONFIG = {
   // Reģistrējies https://formspree.io (bezmaksas) un ieliec savu endpoint šeit.
   // Kamēr tukšs "", forma sūtīs pieteikumu caur WhatsApp.
   form: {
-    formspreeEndpoint: ""
+    formspreeEndpoint: "https://formspree.io/f/mwvdwoen"
   },
 
   // ---- GOOGLE INTEGRĀCIJAS ----
