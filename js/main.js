@@ -149,10 +149,26 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var data = new FormData(form);
-      var endpoint = cfg.form && cfg.form.formspreeEndpoint;
+      var appsScript = cfg.form && cfg.form.appsScriptEndpoint;
+      var formspree = cfg.form && cfg.form.formspreeEndpoint;
 
-      if (endpoint) {
-        fetch(endpoint, {
+      if (appsScript) {
+        // Google Apps Script — ieliek pieteikumu uzreiz kalendārā
+        var btn = form.querySelector("button[type=submit]");
+        btn.disabled = true;
+        fetch(appsScript, { method: "POST", body: data })
+          .then(function (res) { return res.json(); })
+          .then(function (json) {
+            if (!json.ok) throw new Error(json.error || "kļūda");
+            showStatus(t("contact.formSuccess"), true);
+            form.reset();
+          })
+          .catch(function () {
+            showStatus(t("contact.formError"), false);
+          })
+          .then(function () { btn.disabled = false; });
+      } else if (formspree) {
+        fetch(formspree, {
           method: "POST",
           body: data,
           headers: { Accept: "application/json" }

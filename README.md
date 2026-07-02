@@ -23,6 +23,10 @@ izņemot Google integrācijas, kurām vajag internetu.
 
 Pēc saglabāšanas atjaunini lapu pārlūkā (F5).
 
+**Ja maini CSS vai JS failus** — `index.html` failā palielini `?v=` numuru pie
+attiecīgā faila (piem., `js/main.js?v=2` → `js/main.js?v=3`), lai apmeklētāju
+pārlūki paņemtu jauno versiju, nevis kešoto veco.
+
 **Krāsas** var mainīt `css/style.css` faila pašā augšā (`:root` sadaļā).
 
 ## Kā nomainīt bildes pret īstām fotogrāfijām
@@ -68,11 +72,37 @@ abi ierobežojumi (tikai tava lapa + tikai Calendar API).
 
 ## Pieteikuma forma
 
-Pēc noklusējuma forma atver WhatsApp ar aizpildītu ziņu. Lai pieteikumi nāktu uz e-pastu:
+Forma sūta pieteikumu pirmajā konfigurētajā vietā šādā secībā:
 
-1. Reģistrējies https://formspree.io (bezmaksas — 50 pieteikumi mēnesī)
-2. Izveido jaunu formu, nokopē tās adresi (piem., `https://formspree.io/f/abcdwxyz`)
-3. Ieliec to `config.js` → `form.formspreeEndpoint`
+1. **Apps Script** (`form.appsScriptEndpoint`) — pieteikums uzreiz nonāk kalendārā + e-pasts (skat. nākamo sadaļu)
+2. **Formspree** (`form.formspreeEndpoint`) — pieteikums pienāk e-pastā: reģistrējies https://formspree.io (bezmaksas — 50 pieteikumi mēnesī), izveido formu un ieliec tās adresi config failā
+3. Ja abi tukši — forma atver WhatsApp ar aizpildītu ziņu
+
+## Pieteikumi uzreiz kalendārā (Google Apps Script)
+
+Mazs skripts tavā Google kontā saņem formas pieteikumu, ieliek kalendārā notikumu
+**"PIETEIKUMS: vārds, tālrunis"** izvēlētajā datumā un atsūta tev e-pastu.
+
+Svarīgi: pieteikuma notikums tiek izveidots ar pieejamību **"Brīvs"**, tāpēc tas
+**nebloķē datumu lapas kalendārā**. Kad apstiprini rezervāciju — atver notikumu,
+nomaini nosaukumu un **"Rādīt kā" → "Aizņemts"**; tad diena lapā kļūst rozā.
+
+Uzstādīšana (~5 minūtes):
+
+1. Atver https://script.google.com (ar to pašu Google kontu, kam pieder kalendārs) → **New project**
+2. Izdzēs paraugkodu un iekopē visu no šī repozitorija faila `apps-script/Code.gs`
+3. Pārbaudi, ka `CALENDAR_ID` rindā ir tavs kalendāra ID (tas pats, kas `config.js`)
+4. **Deploy → New deployment** → zobrata ikona → **Web app**:
+   - *Execute as*: **Me** (tavs konts)
+   - *Who has access*: **Anyone**
+   - **Deploy**
+5. Pirmajā reizē Google prasīs atļaujas — apstiprini (Advanced → Go to project) —
+   skripts drīkst rakstīt TIKAI tavā kalendārā un sūtīt tev e-pastu
+6. Nokopē **Web app URL** (`https://script.google.com/macros/s/.../exec`)
+   un ieliec `config.js` → `form.appsScriptEndpoint`
+
+Ja vēlāk maini skripta kodu — vajag **Deploy → Manage deployments → Edit → New version**,
+citādi izmaiņas nestājas spēkā.
 
 ## Kā publicēt GitHub Pages
 

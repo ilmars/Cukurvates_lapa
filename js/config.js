@@ -6,7 +6,7 @@
 window.SITE_CONFIG = {
 
   // Lapas nosaukums (redzams headerī un pārlūka cilnē)
-  siteName: "Saldā Vate",
+  siteName: "Cukurvate ",
 
   // Noklusējuma valoda: "lv" vai "en"
   defaultLang: "lv",
@@ -21,9 +21,14 @@ window.SITE_CONFIG = {
   },
 
   // ---- PIETEIKUMA FORMA ----
-  // Reģistrējies https://formspree.io (bezmaksas) un ieliec savu endpoint šeit.
-  // Kamēr tukšs "", forma sūtīs pieteikumu caur WhatsApp.
+  // Forma sūta pieteikumu pirmajā konfigurētajā vietā šādā secībā:
+  //  1) appsScriptEndpoint — pieteikums UZREIZ nonāk Google kalendārā
+  //     (kā "PIETEIKUMS: ..." notikums) + tev pienāk e-pasts.
+  //     Kā uzstādīt: README.md sadaļa "Pieteikumi uzreiz kalendārā".
+  //  2) formspreeEndpoint — pieteikums pienāk tev e-pastā (formspree.io)
+  //  3) ja abi tukši — forma atver WhatsApp ar aizpildītu ziņu
   form: {
+    appsScriptEndpoint: "",
     formspreeEndpoint: "https://formspree.io/f/mwvdwoen"
   },
 
@@ -79,6 +84,15 @@ window.SITE_CONFIG = {
         lv: ["1 kg krāsainā cukura", "Rozā, zila vai dzeltena krāsa", "+50 kociņi iekļauti"],
         en: ["1 kg of colored sugar", "Pink, blue or yellow", "+50 sticks included"]
       }
+    },
+    {
+      featured: false,
+      name: { lv: "Ar operatoru", en: "With an operator" },
+      price: "+€10/h",
+      includes: {
+        lv: ["Mūsu cilvēks gatavo vati taviem viesiem", "Papildus jebkuram nomas komplektam", "Tev nekas nav jādara — tikai jābauda!"],
+        en: ["Our person makes cotton candy for your guests", "Added to any rental package", "You don't have to do a thing — just enjoy!"]
+      }
     }
   ],
 
@@ -99,7 +113,7 @@ window.SITE_CONFIG = {
       stars: 5,
       event: { lv: "Uzņēmuma vasaras pasākums", en: "Company summer event" },
       text: {
-        lv: "Precīzi laikā, viss komplektā. Saldā vate bija pasākuma zvaigzne!",
+        lv: "Precīzi laikā, viss komplektā. Cukurvate bija pasākuma zvaigzne!",
         en: "Right on time, everything included. The cotton candy was the star of the event!"
       }
     },
@@ -119,7 +133,7 @@ window.SITE_CONFIG = {
     lv: {
       nav: { pricing: "Cenas", calendar: "Kalendārs", faq: "BUJ", contact: "Kontakti" },
       hero: {
-        title: "Saldā vate tavai ballītei!",
+        title: "Cukurvate tavai ballītei!",
         subtitle: "Cukurvates aparāta noma dzimšanas dienām, kāzām un pasākumiem — cukurs, kociņi un instruktāža jau iekļauta cenā.",
         ctaBook: "Rezervēt datumu",
         ctaCall: "Zvanīt"
