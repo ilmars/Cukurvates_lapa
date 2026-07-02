@@ -55,43 +55,27 @@ window.SITE_CONFIG = {
     ]
   },
 
-  // ---- CENAS ----
+  // ---- CENAS (piedāvājumi) ----
   pricing: [
     {
       featured: false,
-      name: { lv: "Diennakts", en: "24 hours" },
+      name: { lv: "Standarts", en: "Standard" },
       price: "€40",
+      priceNote: { lv: "diennakts", en: "per 24 hours" },
       includes: {
-        lv: ["Cukurvates aparāts", "1 kg krāsainā cukura (~50 porcijas)", "50 kociņi", "Instruktāža saņemot"],
-        en: ["Cotton candy machine", "1 kg of colored sugar (~50 servings)", "50 sticks", "Instructions at pickup"]
-      }
-    },
-    // {
-    //   featured: true,
-    //   badge: { lv: "Populārākais", en: "Most popular" },
-    //   name: { lv: "Nedēļas nogale", en: "Weekend" },
-    //   price: "€60",
-    //   includes: {
-    //     lv: ["Cukurvates aparāts (Pk–Sv)", "2 kg krāsainā cukura (~100 porcijas)", "100 kociņi", "Instruktāža saņemot"],
-    //     en: ["Cotton candy machine (Fri–Sun)", "2 kg of colored sugar (~100 servings)", "100 sticks", "Instructions at pickup"]
-    //   }
-    // },
-    {
-      featured: false,
-      name: { lv: "Papildu cukurs", en: "Extra sugar" },
-      price: "+€8",
-      includes: {
-        lv: ["1 kg krāsainā cukura", "Rozā, zila vai dzeltena krāsa", "+50 kociņi iekļauti"],
-        en: ["1 kg of colored sugar", "Pink, blue or yellow", "+50 sticks included"]
+        lv: ["Cukurvates aparāts", "1 kg krāsainā cukura (~50 porcijas)", "50 kociņi", "Instruktāža saņemot", "Saņemšana Mārupē"],
+        en: ["Cotton candy machine", "1 kg of colored sugar (~50 servings)", "50 sticks", "Instructions at pickup", "Pick up in Mārupe"]
       }
     },
     {
-      featured: false,
-      name: { lv: "Ar cukurvates meistaru", en: "With a cotton candy master" },
-      price: "+€60",
+      featured: true,
+      badge: { lv: "Viss iekļauts", en: "All inclusive" },
+      name: { lv: "All inclusive", en: "All inclusive" },
+      price: "€100",
+      priceNote: { lv: "pasākumam", en: "per event" },
       includes: {
-        lv: ["Mūsu cilvēks gatavo vati taviem viesiem", "Papildus jebkuram nomas komplektam", "Tev nekas nav jādara — tikai jābauda!", "Pasākumam līdz 6 h"],
-        en: ["Our person makes cotton candy for your guests", "Added to any rental package", "You don't have to do a thing — just enjoy!", "For events up to 6 hours"]
+        lv: ["Cukurvates meistars gatavo vati taviem viesiem (līdz 6 h)", "Aparāts, cukurs un kociņi iekļauti", "Piegāde Mārupē, Babītē un Āgenskalnā", "Citur — pēc vienošanās"],
+        en: ["Our cotton candy master serves your guests (up to 6 h)", "Machine, sugar and sticks included", "Delivery in Mārupe, Babīte and Āgenskalns", "Elsewhere — by arrangement"]
       }
     }
   ],
@@ -147,7 +131,7 @@ window.SITE_CONFIG = {
           { icon: "↩️", title: "Atdod atpakaļ", text: "Nākamajā dienā atdod aparātu — tīrīšana iekļauta." }
         ]
       },
-      pricing: { title: "Cenas", note: "Saņemšana Mārupē. Drošības nauda €30, ko atgriežam, saņemot aparātu atpakaļ." },
+      pricing: { title: "Piedāvājumi", note: "Papildu krāsainais cukurs: +€8 par kg (~50 porcijas, +50 kociņi iekļauti). Drošības nauda €30, ko atgriežam, saņemot aparātu atpakaļ." },
       included: {
         title: "Kas iekļauts un kas jāzina",
         items: [
@@ -213,7 +197,7 @@ window.SITE_CONFIG = {
           { icon: "↩️", title: "Return it", text: "Bring the machine back the next day — cleaning is included." }
         ]
       },
-      pricing: { title: "Pricing", note: "Pick up in Marupe. A €30 deposit is returned when the machine is brought back." },
+      pricing: { title: "Our offers", note: "Extra colored sugar: +€8 per kg (~50 servings, +50 sticks included). A €30 deposit is returned when the machine is brought back." },
       included: {
         title: "What's included and what to know",
         items: [

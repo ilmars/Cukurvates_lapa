@@ -265,6 +265,12 @@ a.step h3::after { content: " →"; }
   color: var(--pink-dark);
   margin: 8px 0 14px;
 }
+.price-card__price-note {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-soft);
+}
 .price-card ul {
   list-style: none;
   text-align: left;

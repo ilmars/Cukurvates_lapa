@@ -97,6 +97,12 @@
       var price = document.createElement("div");
       price.className = "price-card__price";
       price.textContent = plan.price;
+      if (plan.priceNote) {
+        var priceNote = document.createElement("div");
+        priceNote.className = "price-card__price-note";
+        priceNote.textContent = plan.priceNote[lang] || plan.priceNote.lv;
+        price.appendChild(priceNote);
+      }
       var ul = document.createElement("ul");
       (plan.includes[lang] || plan.includes.lv).forEach(function (line) {
         var li = document.createElement("li");
