@@ -16,8 +16,8 @@ window.SITE_CONFIG = {
     phone: "+37127068747",          // rādāmais numurs
     phoneLink: "+37127068747",          // numurs bez atstarpēm (zvana saitei)
     whatsapp: "37127068747",            // numurs WhatsApp saitei (bez + zīmes)
-    email: "info@saldavate.lv",
-    instagram: "https://www.instagram.com/saldavate"
+    // email: "info@saldavate.lv",
+    instagram: "https://www.instagram.com/#"
   },
 
   // ---- PIETEIKUMA FORMA ----

@@ -8,22 +8,30 @@
   var t = function (p) { return window.I18N.t(p); };
 
   // ---- Kontaktu saites un teksti ----
+  // Ja kāds kontakts config failā nav norādīts (izdzēsts vai aizkomentēts),
+  // visas tā pogas/saites lapā tiek paslēptas.
   function applyContacts() {
     var c = cfg.contacts;
+    var phoneNr = c.phoneLink || c.phone;
     var links = {
-      phone: "tel:" + c.phoneLink,
-      whatsapp: "https://wa.me/" + c.whatsapp + "?text=" + encodeURIComponent(t("contact.whatsappText")),
-      email: "mailto:" + c.email,
-      instagram: c.instagram
+      phone: phoneNr ? "tel:" + phoneNr : null,
+      whatsapp: c.whatsapp ? "https://wa.me/" + c.whatsapp + "?text=" + encodeURIComponent(t("contact.whatsappText")) : null,
+      email: c.email ? "mailto:" + c.email : null,
+      instagram: c.instagram || null
     };
     document.querySelectorAll("[data-contact]").forEach(function (el) {
       var kind = el.getAttribute("data-contact");
-      if (links[kind]) el.href = links[kind];
+      if (links[kind]) {
+        el.href = links[kind];
+        el.classList.remove("hidden");
+      } else {
+        el.classList.add("hidden");
+      }
     });
     document.querySelectorAll("[data-contact-label]").forEach(function (el) {
       var kind = el.getAttribute("data-contact-label");
-      if (kind === "phone") el.textContent = c.phone;
-      if (kind === "email") el.textContent = c.email;
+      if (kind === "phone") el.textContent = c.phone || "";
+      if (kind === "email") el.textContent = c.email || "";
     });
   }
 
@@ -186,13 +194,16 @@
           .catch(function () {
             showStatus(t("contact.formError"), false);
           });
-      } else {
+      } else if (cfg.contacts.whatsapp) {
         // Ja Formspree nav pieslēgts — sūtām pieteikumu caur WhatsApp
         var msg = t("contact.whatsappText") +
           "\n" + data.get("name") + ", " + data.get("phone");
         if (data.get("date")) msg += "\n" + t("contact.whatsappDate") + " " + data.get("date");
         if (data.get("message")) msg += "\n" + data.get("message");
         window.open("https://wa.me/" + cfg.contacts.whatsapp + "?text=" + encodeURIComponent(msg), "_blank");
+      } else {
+        // Nav konfigurēts neviens sūtīšanas kanāls
+        showStatus(t("contact.formError"), false);
       }
     });
 
