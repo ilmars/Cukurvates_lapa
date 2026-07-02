@@ -44,8 +44,10 @@
     var grid = document.getElementById("steps-grid");
     grid.innerHTML = "";
     t("steps.items").forEach(function (item) {
-      var el = document.createElement("div");
+      // Ja solim ir "link" — visa kartīte ir klikšķināma saite
+      var el = document.createElement(item.link ? "a" : "div");
       el.className = "step";
+      if (item.link) el.href = item.link;
       el.innerHTML = '<div class="step__icon"></div><h3></h3><p></p>';
       el.querySelector(".step__icon").textContent = item.icon;
       el.querySelector("h3").textContent = item.title;

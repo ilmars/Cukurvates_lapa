@@ -66,20 +66,20 @@ window.SITE_CONFIG = {
         en: ["Cotton candy machine", "1 kg of colored sugar (~50 servings)", "50 sticks", "Instructions at pickup"]
       }
     },
-    {
-      featured: true,
-      badge: { lv: "Populārākais", en: "Most popular" },
-      name: { lv: "Nedēļas nogale", en: "Weekend" },
-      price: "€60",
-      includes: {
-        lv: ["Cukurvates aparāts (Pk–Sv)", "2 kg krāsainā cukura (~100 porcijas)", "100 kociņi", "Instruktāža saņemot"],
-        en: ["Cotton candy machine (Fri–Sun)", "2 kg of colored sugar (~100 servings)", "100 sticks", "Instructions at pickup"]
-      }
-    },
+    // {
+    //   featured: true,
+    //   badge: { lv: "Populārākais", en: "Most popular" },
+    //   name: { lv: "Nedēļas nogale", en: "Weekend" },
+    //   price: "€60",
+    //   includes: {
+    //     lv: ["Cukurvates aparāts (Pk–Sv)", "2 kg krāsainā cukura (~100 porcijas)", "100 kociņi", "Instruktāža saņemot"],
+    //     en: ["Cotton candy machine (Fri–Sun)", "2 kg of colored sugar (~100 servings)", "100 sticks", "Instructions at pickup"]
+    //   }
+    // },
     {
       featured: false,
       name: { lv: "Papildu cukurs", en: "Extra sugar" },
-      price: "€8",
+      price: "+€8",
       includes: {
         lv: ["1 kg krāsainā cukura", "Rozā, zila vai dzeltena krāsa", "+50 kociņi iekļauti"],
         en: ["1 kg of colored sugar", "Pink, blue or yellow", "+50 sticks included"]
@@ -87,11 +87,11 @@ window.SITE_CONFIG = {
     },
     {
       featured: false,
-      name: { lv: "Ar operatoru", en: "With an operator" },
-      price: "+€10/h",
+      name: { lv: "Ar cukurvates meistaru", en: "With a cotton candy master" },
+      price: "+€60",
       includes: {
-        lv: ["Mūsu cilvēks gatavo vati taviem viesiem", "Papildus jebkuram nomas komplektam", "Tev nekas nav jādara — tikai jābauda!"],
-        en: ["Our person makes cotton candy for your guests", "Added to any rental package", "You don't have to do a thing — just enjoy!"]
+        lv: ["Mūsu cilvēks gatavo vati taviem viesiem", "Papildus jebkuram nomas komplektam", "Tev nekas nav jādara — tikai jābauda!", "Pasākumam līdz 6 h"],
+        en: ["Our person makes cotton candy for your guests", "Added to any rental package", "You don't have to do a thing — just enjoy!", "For events up to 6 hours"]
       }
     }
   ],
@@ -141,13 +141,13 @@ window.SITE_CONFIG = {
       steps: {
         title: "Kā tas notiek?",
         items: [
-          { icon: "📅", title: "Rezervē datumu", text: "Apskati kalendāru un piesaki brīvu dienu." },
-          { icon: "🚗", title: "Saņem aparātu", text: "Saņem norunātajā vietā un laikā — parādīsim, kā viss darbojas." },
+          { icon: "📅", title: "Rezervē datumu", text: "Apskati kalendāru un piesaki brīvu dienu.", link: "#calendar" },
+          { icon: "🚗", title: "Saņem aparātu", text: "Saņem Mārupē norunātajā vietā un laikā — parādīsim, kā viss darbojas." },
           { icon: "🍭", title: "Gatavo vati", text: "Pieslēdz parastai rozetei un priecē viesus!" },
           { icon: "↩️", title: "Atdod atpakaļ", text: "Nākamajā dienā atdod aparātu — tīrīšana iekļauta." }
         ]
       },
-      pricing: { title: "Cenas", note: "Piegāde Rīgas robežās — pēc vienošanās. Drošības nauda €30, ko atgriežam, saņemot aparātu atpakaļ." },
+      pricing: { title: "Cenas", note: "Saņemšana Mārupē. Drošības nauda €30, ko atgriežam, saņemot aparātu atpakaļ." },
       included: {
         title: "Kas iekļauts un kas jāzina",
         items: [
@@ -207,13 +207,13 @@ window.SITE_CONFIG = {
       steps: {
         title: "How it works",
         items: [
-          { icon: "📅", title: "Book a date", text: "Check the calendar and request a free day." },
-          { icon: "🚗", title: "Pick up the machine", text: "Meet us at the agreed place and time — we'll show you how it works." },
+          { icon: "📅", title: "Book a date", text: "Check the calendar and request a free day.", link: "#calendar" },
+          { icon: "🚗", title: "Pick up the machine", text: "Meet us in Marupe at the agreed place and time — we'll show you how it works." },
           { icon: "🍭", title: "Make cotton candy", text: "Plug it into a regular outlet and delight your guests!" },
           { icon: "↩️", title: "Return it", text: "Bring the machine back the next day — cleaning is included." }
         ]
       },
-      pricing: { title: "Pricing", note: "Delivery within Riga — by arrangement. A €30 deposit is returned when the machine is brought back." },
+      pricing: { title: "Pricing", note: "Pick up in Marupe. A €30 deposit is returned when the machine is brought back." },
       included: {
         title: "What's included and what to know",
         items: [
