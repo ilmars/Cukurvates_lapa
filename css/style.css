@@ -4,9 +4,9 @@
    ============================================================ */
 
 :root {
-  --pink: #FF6FA5;
-  --pink-dark: #E04E87;
-  --pink-light: #FFD6E5;
+  --pink: #F85888;      /* saskaņots ar logo toni */
+  --pink-dark: #DE3D70;
+  --pink-light: #FDD0DE;
   --bg-cream: #FFF5F8;
   --mint: #3FBFA8;
   --mint-dark: #2A8A79;
@@ -110,7 +110,15 @@ h2 {
   gap: 8px;
   white-space: nowrap;
 }
-.header__logo-icon { font-size: 1.5rem; }
+.header__logo-img { height: 36px; width: auto; display: block; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 .header__nav { display: flex; gap: 22px; }
 .header__nav a {
   color: var(--text);

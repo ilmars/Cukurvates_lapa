@@ -17,7 +17,7 @@ window.SITE_CONFIG = {
     phoneLink: "+37127068747",          // numurs bez atstarpēm (zvana saitei)
     whatsapp: "37127068747",            // numurs WhatsApp saitei (bez + zīmes)
     // email: "info@saldavate.lv",
-    instagram: "https://www.instagram.com/#"
+    // instagram: "https://www.instagram.com/#"
   },
 
   // ---- PIETEIKUMA FORMA ----
@@ -74,8 +74,8 @@ window.SITE_CONFIG = {
       price: "€100",
       priceNote: { lv: "pasākumam", en: "per event" },
       includes: {
-        lv: ["Cukurvates meistars gatavo vati taviem viesiem (līdz 6 h)", "Aparāts, cukurs un kociņi iekļauti", "Piegāde Mārupē, Babītē un Āgenskalnā", "Citur — pēc vienošanās"],
-        en: ["Our cotton candy master serves your guests (up to 6 h)", "Machine, sugar and sticks included", "Delivery in Mārupe, Babīte and Āgenskalns", "Elsewhere — by arrangement"]
+        lv: ["Cukurvates meistars gatavo vati taviem viesiem (līdz 6 h)", "Cukurvates aparāts", "2 kg krāsainā cukura (~100 porcijas)", "100 kociņi", "Piegāde Mārupē, Babītē un Āgenskalnā", "Citur — pēc vienošanās"],
+        en: ["Our cotton candy master serves your guests (up to 6 h)", "Cotton candy machine", "2 kg of colored sugar (~100 servings)", "100 sticks", "Delivery in Mārupe, Babīte and Āgenskalns", "Elsewhere — by arrangement"]
       }
     }
   ],
@@ -135,7 +135,7 @@ window.SITE_CONFIG = {
       included: {
         title: "Kas iekļauts un kas jāzina",
         items: [
-          { icon: "🍬", title: "Krāsainais cukurs", text: "1 kg ≈ 50 porcijas. Rozā, zila vai dzeltena krāsa." },
+          { icon: "🍬", title: "Krāsainais cukurs", text: "1 kg ≈ 50 porcijas. Rozā, zila krāsa." },
           { icon: "🥢", title: "Kociņi", text: "Komplektā porcijām atbilstošs kociņu skaits." },
           { icon: "🎓", title: "Instruktāža", text: "Saņemot parādīsim, kā gatavot vati — tas ir vienkārši!" },
           { icon: "🔌", title: "Parasta rozete", text: "Vajag tikai 220V rozeti — der jebkura mājas rozete." },
@@ -201,7 +201,7 @@ window.SITE_CONFIG = {
       included: {
         title: "What's included and what to know",
         items: [
-          { icon: "🍬", title: "Colored sugar", text: "1 kg ≈ 50 servings. Pink, blue or yellow." },
+          { icon: "🍬", title: "Colored sugar", text: "1 kg ≈ 50 servings. Pink or blue." },
           { icon: "🥢", title: "Sticks", text: "Enough sticks for all servings included." },
           { icon: "🎓", title: "Instructions", text: "We'll show you how to make cotton candy — it's easy!" },
           { icon: "🔌", title: "Regular outlet", text: "Only a 220V outlet needed — any home socket works." },
