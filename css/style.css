@@ -1,0 +1,534 @@
+/* ============================================================
+   SALDĀ VATE — stili
+   Krāsas var mainīt šeit augšā (CSS mainīgie).
+   ============================================================ */
+
+:root {
+  --pink: #FF6FA5;
+  --pink-dark: #E04E87;
+  --pink-light: #FFD6E5;
+  --bg-cream: #FFF5F8;
+  --mint: #3FBFA8;
+  --mint-dark: #2A8A79;
+  --text: #3A2E39;
+  --text-soft: #8A6E80;
+  --white: #FFFFFF;
+  --radius: 20px;
+  --shadow: 0 6px 24px rgba(224, 78, 135, 0.12);
+  --font-head: 'Fredoka', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container--narrow { max-width: 760px; }
+
+h1, h2, h3 { font-family: var(--font-head); font-weight: 600; line-height: 1.2; }
+
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.section { padding: 64px 0; scroll-margin-top: 70px; }
+.section--cream { background: var(--bg-cream); }
+.section--pink { background: var(--pink-light); }
+.section__subtitle {
+  text-align: center;
+  color: var(--text-soft);
+  margin-bottom: 32px;
+}
+
+.hidden { display: none !important; }
+
+/* ---------- Pogas ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn--primary { background: var(--pink); color: var(--white); }
+.btn--primary:hover { background: var(--pink-dark); }
+.btn--whatsapp { background: var(--mint); color: var(--white); }
+.btn--whatsapp:hover { background: var(--mint-dark); }
+.btn--outline { background: var(--white); color: var(--pink-dark); border-color: var(--pink); }
+.btn--small { padding: 8px 18px; font-size: 0.9rem; }
+
+/* ---------- Header ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--pink-light);
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.header__logo {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--pink-dark);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.header__logo-icon { font-size: 1.5rem; }
+.header__nav { display: flex; gap: 22px; }
+.header__nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.header__nav a:hover { color: var(--pink-dark); }
+.header__actions { display: flex; align-items: center; gap: 12px; }
+
+.lang-switch {
+  display: flex;
+  border: 2px solid var(--pink-light);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.lang-switch button {
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: var(--text-soft);
+}
+.lang-switch button.active { background: var(--pink); color: var(--white); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  background: linear-gradient(160deg, #FFE3EE 0%, #FFF5F8 55%, #E8FBF7 100%);
+  padding: 64px 0 90px;
+}
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.hero__text p {
+  margin: 18px 0 28px;
+  font-size: 1.1rem;
+  color: var(--text-soft);
+  max-width: 46ch;
+}
+.hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero__image img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transform: rotate(2deg);
+}
+.wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+.wave svg { width: 100%; height: 40px; display: block; }
+
+/* ---------- Soļi ---------- */
+.steps__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+  margin-top: 36px;
+}
+.step {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 26px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.step__icon { font-size: 2.2rem; }
+.step h3 { font-size: 1.1rem; margin: 12px 0 6px; color: var(--pink-dark); }
+.step p { font-size: 0.95rem; color: var(--text-soft); }
+
+/* ---------- Galerija ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 800px) {
+  .gallery { grid-template-columns: 1fr; }
+}
+
+/* ---------- Cenas ---------- */
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  margin-top: 36px;
+  align-items: stretch;
+}
+.price-card {
+  background: var(--white);
+  border: 2px solid var(--pink-light);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.price-card--featured {
+  border-color: var(--pink);
+  box-shadow: var(--shadow);
+  transform: scale(1.03);
+}
+.price-card__badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--pink);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.price-card h3 { font-size: 1.15rem; color: var(--text); }
+.price-card__price {
+  font-family: var(--font-head);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--pink-dark);
+  margin: 8px 0 14px;
+}
+.price-card ul {
+  list-style: none;
+  text-align: left;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  flex: 1;
+}
+.price-card li { padding: 5px 0 5px 26px; position: relative; }
+.price-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--mint);
+  font-weight: 700;
+}
+.pricing__note {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  margin-top: 28px;
+}
+
+/* ---------- Kas iekļauts ---------- */
+.included__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+.included-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  box-shadow: var(--shadow);
+}
+.included-item__icon { font-size: 1.8rem; }
+.included-item h3 { font-size: 1.02rem; margin-bottom: 4px; }
+.included-item p { font-size: 0.92rem; color: var(--text-soft); }
+
+/* ---------- Kalendārs ---------- */
+.calendar {
+  max-width: 420px;
+  margin: 36px auto 0;
+  background: var(--white);
+  border: 2px solid var(--pink-light);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.calendar__month { font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; }
+.calendar__nav {
+  border: none;
+  background: var(--pink-light);
+  color: var(--pink-dark);
+  font-size: 1.3rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+}
+.calendar__nav:hover:not(:disabled) { background: var(--pink); color: var(--white); }
+.calendar__nav:disabled { opacity: 0.35; cursor: default; }
+.calendar__weekdays, .calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.calendar__weekdays span {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  padding: 4px 0;
+}
+.cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 10px;
+  background: var(--bg-cream);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  color: var(--text);
+}
+.cal-day:hover:not(:disabled) { background: var(--mint); color: var(--white); }
+.cal-day--empty { background: transparent; cursor: default; }
+.cal-day--busy { background: var(--pink); color: var(--white); cursor: not-allowed; }
+.cal-day--past { background: transparent; color: #C9BFC6; cursor: default; }
+.cal-day--selected { outline: 3px solid var(--mint); }
+.calendar__legend {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  margin-right: 5px;
+  vertical-align: -1px;
+}
+.dot--free { background: var(--bg-cream); border: 1px solid var(--pink-light); }
+.dot--busy { background: var(--pink); }
+.calendar__unavailable {
+  text-align: center;
+  color: var(--text-soft);
+  background: var(--bg-cream);
+  border-radius: var(--radius);
+  padding: 20px;
+  max-width: 480px;
+  margin: 24px auto 0;
+}
+
+/* ---------- Atsauksmes ---------- */
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 36px;
+}
+.review {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+.review__stars { color: #F5A623; font-size: 1rem; letter-spacing: 2px; }
+.review__text { margin: 10px 0 14px; font-size: 0.97rem; flex: 1; }
+.review__author { font-weight: 700; font-size: 0.9rem; }
+.review__event { color: var(--text-soft); font-size: 0.82rem; }
+
+/* ---------- BUJ ---------- */
+.faq__list { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+.faq-item {
+  background: var(--bg-cream);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  color: var(--pink-dark);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { padding: 0 20px 16px; color: var(--text-soft); font-size: 0.95rem; }
+
+/* ---------- Kontakti ---------- */
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+  margin-top: 36px;
+  align-items: start;
+}
+.contact__form {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact__form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+.contact__form input,
+.contact__form textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 11px 14px;
+  border: 2px solid var(--pink-light);
+  border-radius: 12px;
+  background: var(--bg-cream);
+  color: var(--text);
+}
+.contact__form input:focus,
+.contact__form textarea:focus {
+  outline: none;
+  border-color: var(--pink);
+  background: var(--white);
+}
+.contact__status { font-weight: 700; text-align: center; }
+.contact__status--ok { color: var(--mint-dark); }
+.contact__status--err { color: var(--pink-dark); }
+.contact__info { display: flex; flex-direction: column; gap: 14px; }
+.contact__item {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease;
+}
+.contact__item:hover { transform: translateX(4px); color: var(--pink-dark); }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--text);
+  color: var(--pink-light);
+  text-align: center;
+  padding: 28px 0;
+  font-size: 0.92rem;
+}
+.footer__copy { opacity: 0.7; font-size: 0.82rem; margin-top: 4px; }
+
+/* ---------- Peldošā zvana poga ---------- */
+.fab {
+  display: none;
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 90;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--pink);
+  color: var(--white);
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(224, 78, 135, 0.45);
+}
+
+/* ---------- Mobilais skats ---------- */
+@media (max-width: 800px) {
+  .header__nav { display: none; }
+  .header__call span[data-contact-label] { display: none; }
+  .hero { padding: 40px 0 80px; }
+  .hero__inner { grid-template-columns: 1fr; gap: 28px; }
+  .hero__image img { transform: none; }
+  .section { padding: 48px 0; }
+  .contact__grid { grid-template-columns: 1fr; }
+  .fab { display: flex; }
+  .price-card--featured { transform: none; }
+}

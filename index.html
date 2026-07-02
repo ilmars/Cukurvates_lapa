@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saldā Vate — cukurvates aparāta noma</title>
+  <meta name="description" content="Cukurvates aparāta noma ballītēm un pasākumiem. Cukurs, kociņi un instruktāža iekļauta cenā.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="header__logo">
+        <span class="header__logo-icon">🍭</span>
+        <span id="site-name">Saldā Vate</span>
+      </a>
+      <nav class="header__nav">
+        <a href="#pricing" data-i18n="nav.pricing">Cenas</a>
+        <a href="#calendar" data-i18n="nav.calendar">Kalendārs</a>
+        <a href="#faq" data-i18n="nav.faq">BUJ</a>
+        <a href="#contact" data-i18n="nav.contact">Kontakti</a>
+      </nav>
+      <div class="header__actions">
+        <div class="lang-switch" id="lang-switch">
+          <button data-lang="lv" class="active">LV</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <a href="#" class="btn btn--primary btn--small header__call" data-contact="phone">
+          <span>📞</span> <span data-contact-label="phone"></span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <h1 data-i18n="hero.title">Saldā vate tavai ballītei!</h1>
+        <p data-i18n="hero.subtitle"></p>
+        <div class="hero__cta">
+          <a href="#calendar" class="btn btn--primary" data-i18n="hero.ctaBook">Rezervēt datumu</a>
+          <a href="#" class="btn btn--whatsapp" data-contact="whatsapp">
+            <span>💬</span> WhatsApp
+          </a>
+          <a href="#" class="btn btn--outline" data-contact="phone">
+            <span>📞</span> <span data-i18n="hero.ctaCall">Zvanīt</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero__image">
+        <img id="hero-img" src="assets/hero.jpg" alt="Saldā vate ballītē">
+      </div>
+    </div>
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,60 480,0 720,25 C960,50 1200,10 1440,35 L1440,60 L0,60 Z" fill="var(--bg-cream)"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== KĀ TAS NOTIEK ===== -->
+  <section class="section section--cream" id="steps">
+    <div class="container">
+      <h2 data-i18n="steps.title">Kā tas notiek?</h2>
+      <div class="steps__grid" id="steps-grid"></div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <!-- ===== CENAS ===== -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <h2 data-i18n="pricing.title">Cenas</h2>
+      <div class="pricing__grid" id="pricing-grid"></div>
+      <p class="pricing__note" data-i18n="pricing.note"></p>
+    </div>
+  </section>
+
+  <!-- ===== KAS IEKĻAUTS ===== -->
+  <section class="section section--cream" id="included">
+    <div class="container">
+      <h2 data-i18n="included.title">Kas iekļauts un kas jāzina</h2>
+      <div class="included__grid" id="included-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== KALENDĀRS ===== -->
+  <section class="section" id="calendar">
+    <div class="container">
+      <h2 data-i18n="calendar.title">Pieejamība</h2>
+      <p class="section__subtitle" data-i18n="calendar.subtitle"></p>
+      <div class="calendar" id="calendar-widget">
+        <div class="calendar__header">
+          <button class="calendar__nav" id="cal-prev" aria-label="Iepriekšējais mēnesis">‹</button>
+          <span class="calendar__month" id="cal-month"></span>
+          <button class="calendar__nav" id="cal-next" aria-label="Nākamais mēnesis">›</button>
+        </div>
+        <div class="calendar__weekdays" id="cal-weekdays"></div>
+        <div class="calendar__grid" id="cal-grid"></div>
+        <div class="calendar__legend">
+          <span><i class="dot dot--free"></i> <span data-i18n="calendar.legendFree">Brīvs</span></span>
+          <span><i class="dot dot--busy"></i> <span data-i18n="calendar.legendBusy">Aizņemts</span></span>
+        </div>
+      </div>
+      <p class="calendar__unavailable hidden" id="cal-unavailable" data-i18n="calendar.unavailable"></p>
+    </div>
+  </section>
+
+  <!-- ===== ATSAUKSMES ===== -->
+  <section class="section section--cream" id="reviews">
+    <div class="container">
+      <h2 data-i18n="reviews.title">Atsauksmes</h2>
+      <div class="reviews__grid" id="reviews-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== BUJ ===== -->
+  <section class="section" id="faq">
+    <div class="container container--narrow">
+      <h2 data-i18n="faq.title">Biežāk uzdotie jautājumi</h2>
+      <div class="faq__list" id="faq-list"></div>
+    </div>
+  </section>
+
+  <!-- ===== KONTAKTI ===== -->
+  <section class="section section--pink" id="contact">
+    <div class="container">
+      <h2 data-i18n="contact.title">Sazinies ar mums</h2>
+      <p class="section__subtitle" data-i18n="contact.subtitle"></p>
+      <div class="contact__grid">
+        <form class="contact__form" id="contact-form">
+          <label>
+            <span data-i18n="contact.formName">Tavs vārds</span>
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            <span data-i18n="contact.formPhone">Tālrunis</span>
+            <input type="tel" name="phone" required>
+          </label>
+          <label>
+            <span data-i18n="contact.formDate">Vēlamais datums</span>
+            <input type="date" name="date" id="form-date">
+          </label>
+          <label>
+            <span data-i18n="contact.formMessage">Ziņa</span>
+            <textarea name="message" rows="3"></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary" data-i18n="contact.formSubmit">Nosūtīt pieteikumu</button>
+          <p class="contact__status hidden" id="form-status"></p>
+        </form>
+        <div class="contact__info">
+          <a href="#" class="contact__item" data-contact="phone">📞 <span data-contact-label="phone"></span></a>
+          <a href="#" class="contact__item" data-contact="whatsapp">💬 WhatsApp</a>
+          <a href="#" class="contact__item" data-contact="email">✉️ <span data-contact-label="email"></span></a>
+          <a href="#" class="contact__item" data-contact="instagram" target="_blank" rel="noopener">📸 Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p><span id="footer-name">Saldā Vate</span> · <span data-i18n="footer.tagline"></span></p>
+      <p class="footer__copy">© <span id="footer-year"></span></p>
+    </div>
+  </footer>
+
+  <!-- Peldošā zvana poga (mobilajā) -->
+  <a href="#" class="fab" data-contact="phone" aria-label="Zvanīt">📞</a>
+
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/reviews.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
