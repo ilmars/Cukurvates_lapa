@@ -19,7 +19,10 @@ window.CAL = (function () {
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
   function dayKey(y, m, d) { return y + "-" + pad(m + 1) + "-" + pad(d); }
 
-  // ---- Google Calendar API ----
+  // ---- Google Calendar API (freeBusy) ----
+  // Izmantojam freeBusy vaicājumu, nevis notikumu sarakstu:
+  //  * strādā arī tad, ja kalendārs publiskots tikai "brīvs/aizņemts" režīmā
+  //  * neatklāj notikumu nosaukumus — tikai aizņemtos laikus
   function fetchEvents() {
     var id = cfg.google && cfg.google.calendarId;
     var key = cfg.google && cfg.google.calendarApiKey;
@@ -27,42 +30,30 @@ window.CAL = (function () {
 
     var timeMin = new Date(today.getFullYear(), today.getMonth(), 1).toISOString();
     var timeMax = new Date(today.getFullYear(), today.getMonth() + MONTHS_AHEAD + 1, 1).toISOString();
-    var url = "https://www.googleapis.com/calendar/v3/calendars/" +
-      encodeURIComponent(id) + "/events" +
-      "?key=" + encodeURIComponent(key) +
-      "&timeMin=" + encodeURIComponent(timeMin) +
-      "&timeMax=" + encodeURIComponent(timeMax) +
-      "&singleEvents=true&maxResults=250&fields=items(start,end)";
+    var url = "https://www.googleapis.com/calendar/v3/freeBusy?key=" + encodeURIComponent(key);
 
-    return fetch(url).then(function (res) {
+    return fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ timeMin: timeMin, timeMax: timeMax, items: [{ id: id }] })
+    }).then(function (res) {
       if (!res.ok) throw new Error("HTTP " + res.status);
       return res.json();
     }).then(function (data) {
-      (data.items || []).forEach(function (ev) {
-        markEventDays(ev);
-      });
+      var cal = data.calendars && data.calendars[id];
+      if (!cal || cal.errors) throw new Error("Kalendārs nav publiski pieejams");
+      (cal.busy || []).forEach(markBusyRange);
       loaded = true;
     });
   }
 
-  // Atzīmē visas dienas, ko notikums aizņem (arī vairāku dienu notikumiem)
-  function markEventDays(ev) {
-    var start = ev.start && (ev.start.date || ev.start.dateTime);
-    var end = ev.end && (ev.end.date || ev.end.dateTime);
-    if (!start) return;
-    var s = new Date(start.substring(0, 10) + "T00:00:00");
-    var e;
-    if (ev.end && ev.end.date) {
-      // Visas dienas notikumam beigu datums ir ekskluzīvs
-      e = new Date(end.substring(0, 10) + "T00:00:00");
-      e.setDate(e.getDate() - 1);
-    } else if (end) {
-      e = new Date(end.substring(0, 10) + "T00:00:00");
-    } else {
-      e = new Date(s);
-    }
-    var d = new Date(s);
-    while (d <= e) {
+  // Atzīmē visas dienas, ko aizņemtais laika posms skar
+  function markBusyRange(range) {
+    var s = new Date(range.start);
+    var e = new Date(range.end);
+    if (isNaN(s) || isNaN(e)) return;
+    var d = new Date(s.getFullYear(), s.getMonth(), s.getDate());
+    while (d < e) {
       busyDays[dayKey(d.getFullYear(), d.getMonth(), d.getDate())] = true;
       d.setDate(d.getDate() + 1);
     }

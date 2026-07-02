@@ -33,7 +33,7 @@ window.SITE_CONFIG = {
     // Publiskas Google Sheets izklājlapas ID (atsauksmēm). Tukšs = rāda reviewsFallback.
     reviewsSheetId: "",
     // Publiska Google kalendāra ID (piem., xxx@group.calendar.google.com)
-    calendarId: "",
+    calendarId: "f28fa9b3cf56366baba91ef0ab227ffe34d7f7f12f4f61a9ab8bdfa731098258@group.calendar.google.com",
     // Google Cloud API atslēga (tikai Calendar API, ar referrer ierobežojumu!)
     calendarApiKey: ""
   },
