@@ -113,6 +113,9 @@ window.SITE_CONFIG = {
   ],
 
   // ---- VISI LAPAS TEKSTI ----
+  // Ikonas: pieejamie vārdi — calendar, car, candy, return, sugar, sticks,
+  // teach, plug, space, home (plakanas SVG ikonas zīmola krāsā).
+  // Ja ieraksti ko citu (piem., emoci 🍭), tas tiks rādīts kā teksts.
   texts: {
     lv: {
       nav: { pricing: "Cenas", calendar: "Kalendārs", faq: "BUJ", contact: "Kontakti" },
@@ -125,22 +128,22 @@ window.SITE_CONFIG = {
       steps: {
         title: "Kā tas notiek?",
         items: [
-          { icon: "📅", title: "Rezervē datumu", text: "Apskati kalendāru un piesaki brīvu dienu.", link: "#calendar" },
-          { icon: "🚗", title: "Saņem aparātu", text: "Saņem Mārupē norunātajā vietā un laikā — parādīsim, kā viss darbojas." },
-          { icon: "🍭", title: "Gatavo vati", text: "Pieslēdz parastai rozetei un priecē viesus!" },
-          { icon: "↩️", title: "Atdod atpakaļ", text: "Nākamajā dienā atdod aparātu — tīrīšana iekļauta." }
+          { icon: "calendar", title: "Rezervē datumu", text: "Apskati kalendāru un piesaki brīvu dienu.", link: "#calendar" },
+          { icon: "car", title: "Saņem aparātu", text: "Saņem Mārupē norunātajā vietā un laikā — parādīsim, kā viss darbojas." },
+          { icon: "candy", title: "Gatavo vati", text: "Pieslēdz parastai rozetei un priecē viesus!" },
+          { icon: "return", title: "Atdod atpakaļ", text: "Nākamajā dienā atdod aparātu — tīrīšana iekļauta." }
         ]
       },
       pricing: { title: "Piedāvājumi", note: "Papildu krāsainais cukurs: +€8 par kg (~50 porcijas, +50 kociņi iekļauti). Drošības nauda €30, ko atgriežam, saņemot aparātu atpakaļ." },
       included: {
         title: "Kas iekļauts un kas jāzina",
         items: [
-          { icon: "🍬", title: "Krāsainais cukurs", text: "1 kg ≈ 50 porcijas. Rozā, zila krāsa." },
-          { icon: "🥢", title: "Kociņi", text: "Komplektā porcijām atbilstošs kociņu skaits." },
-          { icon: "🎓", title: "Instruktāža", text: "Saņemot parādīsim, kā gatavot vati — tas ir vienkārši!" },
-          { icon: "🔌", title: "Parasta rozete", text: "Vajag tikai 220V rozeti — der jebkura mājas rozete." },
-          { icon: "📏", title: "Neliela vieta", text: "Pietiek ar galdu ~1×1 m un vietu, kur stāvēt." },
-          { icon: "🏠", title: "Iekštelpās un ārā", text: "Ārā — zem nojumes un bez stipra vēja." }
+          { icon: "sugar", title: "Krāsainais cukurs", text: "1 kg ≈ 50 porcijas. Rozā, zila krāsa." },
+          { icon: "sticks", title: "Kociņi", text: "Komplektā porcijām atbilstošs kociņu skaits." },
+          { icon: "teach", title: "Instruktāža", text: "Saņemot parādīsim, kā gatavot vati — tas ir vienkārši!" },
+          { icon: "plug", title: "Parasta rozete", text: "Vajag tikai 220V rozeti — der jebkura mājas rozete." },
+          { icon: "space", title: "Neliela vieta", text: "Pietiek ar galdu ~1×1 m un vietu, kur stāvēt." },
+          { icon: "home", title: "Iekštelpās un ārā", text: "Ārā — zem nojumes un bez stipra vēja." }
         ]
       },
       calendar: {
@@ -191,22 +194,22 @@ window.SITE_CONFIG = {
       steps: {
         title: "How it works",
         items: [
-          { icon: "📅", title: "Book a date", text: "Check the calendar and request a free day.", link: "#calendar" },
-          { icon: "🚗", title: "Pick up the machine", text: "Meet us in Marupe at the agreed place and time — we'll show you how it works." },
-          { icon: "🍭", title: "Make cotton candy", text: "Plug it into a regular outlet and delight your guests!" },
-          { icon: "↩️", title: "Return it", text: "Bring the machine back the next day — cleaning is included." }
+          { icon: "calendar", title: "Book a date", text: "Check the calendar and request a free day.", link: "#calendar" },
+          { icon: "car", title: "Pick up the machine", text: "Meet us in Marupe at the agreed place and time — we'll show you how it works." },
+          { icon: "candy", title: "Make cotton candy", text: "Plug it into a regular outlet and delight your guests!" },
+          { icon: "return", title: "Return it", text: "Bring the machine back the next day — cleaning is included." }
         ]
       },
       pricing: { title: "Our offers", note: "Extra colored sugar: +€8 per kg (~50 servings, +50 sticks included). A €30 deposit is returned when the machine is brought back." },
       included: {
         title: "What's included and what to know",
         items: [
-          { icon: "🍬", title: "Colored sugar", text: "1 kg ≈ 50 servings. Pink or blue." },
-          { icon: "🥢", title: "Sticks", text: "Enough sticks for all servings included." },
-          { icon: "🎓", title: "Instructions", text: "We'll show you how to make cotton candy — it's easy!" },
-          { icon: "🔌", title: "Regular outlet", text: "Only a 220V outlet needed — any home socket works." },
-          { icon: "📏", title: "Small footprint", text: "A ~1×1 m table and room to stand is enough." },
-          { icon: "🏠", title: "Indoors and outdoors", text: "Outdoors — under a canopy and without strong wind." }
+          { icon: "sugar", title: "Colored sugar", text: "1 kg ≈ 50 servings. Pink or blue." },
+          { icon: "sticks", title: "Sticks", text: "Enough sticks for all servings included." },
+          { icon: "teach", title: "Instructions", text: "We'll show you how to make cotton candy — it's easy!" },
+          { icon: "plug", title: "Regular outlet", text: "Only a 220V outlet needed — any home socket works." },
+          { icon: "space", title: "Small footprint", text: "A ~1×1 m table and room to stand is enough." },
+          { icon: "home", title: "Indoors and outdoors", text: "Outdoors — under a canopy and without strong wind." }
         ]
       },
       calendar: {

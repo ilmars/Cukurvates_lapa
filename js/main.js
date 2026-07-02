@@ -7,6 +7,31 @@
   var cfg = window.SITE_CONFIG;
   var t = function (p) { return window.I18N.t(p); };
 
+  // ---- Plakanas SVG ikonas ----
+  // Config failā ikonu norāda pēc vārda (piem., icon: "calendar").
+  // Ja vārds nav sarakstā, tiek rādīts kā teksts — tātad emoji arī strādā.
+  var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+  var ICONS = {
+    calendar: SVG_OPEN + '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>',
+    car: SVG_OPEN + '<path d="M4 17v-4l2-5h12l2 5v4"/><path d="M4 13h16"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></svg>',
+    candy: SVG_OPEN + '<circle cx="12" cy="8" r="5"/><path d="M12 8a2.5 2.5 0 0 0-2.5-2.5"/><path d="M12 13v8"/></svg>',
+    "return": SVG_OPEN + '<path d="M9 14l-4-4 4-4"/><path d="M5 10h9a5 5 0 0 1 0 10h-4"/></svg>',
+    sugar: SVG_OPEN + '<circle cx="12" cy="12" r="4"/><path d="M16 12l4-3v6l-4-3zM8 12l-4-3v6l4-3z"/></svg>',
+    sticks: SVG_OPEN + '<path d="M6 20L16 4M10 20L20 6"/></svg>',
+    teach: SVG_OPEN + '<path d="M12 4L2 9l10 5 10-5-10-5z"/><path d="M6 11.5V16c0 1.1 2.7 2 6 2s6-.9 6-2v-4.5"/></svg>',
+    plug: SVG_OPEN + '<path d="M9 3v6M15 3v6"/><path d="M6 9h12v3a6 6 0 0 1-12 0V9z"/><path d="M12 18v3"/></svg>',
+    space: SVG_OPEN + '<path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></svg>',
+    home: SVG_OPEN + '<path d="M4 11l8-7 8 7"/><path d="M6 9.5V20h12V9.5"/></svg>'
+  };
+
+  function setIcon(el, name) {
+    if (ICONS[name]) {
+      el.innerHTML = ICONS[name];
+    } else {
+      el.textContent = name;
+    }
+  }
+
   // ---- Kontaktu saites un teksti ----
   // Ja kāds kontakts config failā nav norādīts (izdzēsts vai aizkomentēts),
   // visas tā pogas/saites lapā tiek paslēptas.
@@ -57,7 +82,7 @@
       el.className = "step";
       if (item.link) el.href = item.link;
       el.innerHTML = '<div class="step__icon"></div><h3></h3><p></p>';
-      el.querySelector(".step__icon").textContent = item.icon;
+      setIcon(el.querySelector(".step__icon"), item.icon);
       el.querySelector("h3").textContent = item.title;
       el.querySelector("p").textContent = item.text;
       grid.appendChild(el);
@@ -124,7 +149,7 @@
       var el = document.createElement("div");
       el.className = "included-item";
       el.innerHTML = '<div class="included-item__icon"></div><div><h3></h3><p></p></div>';
-      el.querySelector(".included-item__icon").textContent = item.icon;
+      setIcon(el.querySelector(".included-item__icon"), item.icon);
       el.querySelector("h3").textContent = item.title;
       el.querySelector("p").textContent = item.text;
       grid.appendChild(el);

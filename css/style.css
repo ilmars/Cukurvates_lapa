@@ -59,6 +59,22 @@ h2 {
 
 .hidden { display: none !important; }
 
+/* ---------- SVG ikonas ---------- */
+svg.icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  vertical-align: -3px;
+}
+.step__icon svg,
+.included-item__icon svg {
+  width: 36px;
+  height: 36px;
+  color: var(--pink);
+}
+.contact__item svg.icon { color: var(--pink); margin-right: 6px; }
+.fab svg.icon { width: 24px; height: 24px; }
+
 /* ---------- Pogas ---------- */
 .btn {
   display: inline-flex;
