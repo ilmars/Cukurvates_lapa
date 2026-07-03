@@ -57,27 +57,25 @@ window.SITE_CONFIG = {
 
   // ---- CENAS (piedāvājumi) ----
   pricing: [
-    {
+     {
       featured: false,
-      name: { lv: "Standarts", en: "Standard" },
+      name: { lv: "Diennakts", en: "24 hours" },
       price: "€40",
-      priceNote: { lv: "diennakts", en: "per 24 hours" },
       includes: {
-        lv: ["Cukurvates aparāts", "1 kg krāsainā cukura (~50 porcijas)", "50 kociņi", "Instruktāža saņemot", "Saņemšana Mārupē"],
-        en: ["Cotton candy machine", "1 kg of colored sugar (~50 servings)", "50 sticks", "Instructions at pickup", "Pick up in Mārupe"]
+        lv: ["Cukurvates aparāts", "1 kg krāsainā cukura (~50 porcijas)", "50 kociņi", "Instruktāža saņemot"],
+        en: ["Cotton candy machine", "1 kg of colored sugar (~50 servings)", "50 sticks", "Instructions at pickup"]
       }
     },
     {
-      featured: true,
-      badge: { lv: "Viss iekļauts", en: "All inclusive" },
-      name: { lv: "All inclusive", en: "All inclusive" },
-      price: "€100",
-      priceNote: { lv: "pasākumam", en: "per event" },
+      featured: false,
+      name: { lv: "Papildu cukurs", en: "Extra sugar" },
+      price: "+€8",
       includes: {
-        lv: ["Cukurvates meistars gatavo vati taviem viesiem (līdz 6 h)", "Cukurvates aparāts", "2 kg krāsainā cukura (~100 porcijas)", "100 kociņi", "Piegāde Mārupē, Babītē un Āgenskalnā", "Citur — pēc vienošanās"],
-        en: ["Our cotton candy master serves your guests (up to 6 h)", "Cotton candy machine", "2 kg of colored sugar (~100 servings)", "100 sticks", "Delivery in Mārupe, Babīte and Āgenskalns", "Elsewhere — by arrangement"]
+        lv: ["1 kg krāsainā cukura", "Rozā, zila vai dzeltena krāsa", "+50 kociņi iekļauti"],
+        en: ["1 kg of colored sugar", "Pink, blue or yellow", "+50 sticks included"]
       }
     }
+
   ],
 
   // ---- REZERVES ATSAUKSMES ----
@@ -134,7 +132,7 @@ window.SITE_CONFIG = {
           { icon: "return", title: "Atdod atpakaļ", text: "Nākamajā dienā atdod aparātu — tīrīšana iekļauta." }
         ]
       },
-      pricing: { title: "Piedāvājumi", note: "Papildu krāsainais cukurs: +€8 par kg (~50 porcijas, +50 kociņi iekļauti). Drošības nauda €30, ko atgriežam, saņemot aparātu atpakaļ." },
+      pricing: { title: "Piedāvājumi", note: "Saņemšana Mārupē. Drošības nauda €50, ko atgriežam, saņemot aparātu atpakaļ." },
       included: {
         title: "Kas iekļauts un kas jāzina",
         items: [
@@ -163,7 +161,7 @@ window.SITE_CONFIG = {
           { q: "Cik porciju sanāk no 1 kg cukura?", a: "Apmēram 50 porcijas — katrai vatei vajag apmēram 20 gramus cukura." },
           { q: "Vai aparātu var lietot ārā?", a: "Jā, bet zem nojumes vai teltī un bez stipra vēja — vate ir viegla un lidojoša!" },
           { q: "Vai ir vajadzīgas īpašas prasmes?", a: "Nē! Saņemot aparātu, 10 minūtēs parādīsim, kā viss darbojas. Pirmā vate sanāk jau ar otro mēģinājumu." },
-          { q: "Kā notiek rezervācija un samaksa?", a: "Piesakies pa tālruni, WhatsApp vai ar formu. Rezervējot lūgsim €10 avansu, pārējo — saņemot aparātu. Drošības nauda €30 tiek atgriezta, kad aparātu atdod." },
+          { q: "Kā notiek rezervācija un samaksa?", a: "Piesakies pa tālruni, WhatsApp vai ar formu. Drošības nauda €50 tiek atgriezta, kad aparātu atdod." },
           { q: "Kas notiek, ja aparāts saplīst?", a: "Ja tas notiek parastā lietošanā — tā ir mūsu atbildība. Ja bojājums radies neuzmanības dēļ, to sedz drošības nauda." }
         ]
       },
